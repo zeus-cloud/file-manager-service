@@ -1,0 +1,13 @@
+REST server para consultas sobre archivos
+HTTPS para conectar de manera segura
+Conectar con sistema de encriptacion
+Encriptar archivo entrante
+Desencriptar archivo saliente
+Almacenamiento de claves de encriptacion !!
+Conectar con file system, conectar de manera dinamica
+Tomar informacion de file system
+ABM de archivos sobre file system
+Generar copias de seguridad
+Servir archivos a front end
+Generar reportes sobre estado de file system (llenado, uso, etc)
+Encolar auto backup de file system
