@@ -19,7 +19,7 @@ app.post('/save', (req, res) => {
     res.send({msg:"Archivo recibido"});
     console.log("Archivo recibido: " + req.body.originalname);
   }else{
-    res.status(404).send("Archivo nombre equivocado");
+    res.status(404).send({msg:"Archivo nombre equivocado"});
   }
 });
 
