@@ -23,6 +23,17 @@ app.post('/save', (req, res) => {
   }
 });
 
+app.get('/get/**', (req, res) => {
+  console.log("Archivo seleccionado: " + req.query.archivo);
+  let readStream = fs.createReadStream("./SAVE/"+req.query.archivo+".zeus");
+  var bufs = [];
+  readStream.on('data', function(d){ bufs.push(d); });
+  readStream.on('end', function(){var buf = Buffer.concat(bufs);
+                                  console.log("Archivo enviado: " + req.query.archivo);
+                                  res.send({archivo:req.query.archivo, buffer:buf});
+                                });
+});
+
 console.log('Servicio de guardado y copia de archivos: ' + port);
 app.listen(port);
 
