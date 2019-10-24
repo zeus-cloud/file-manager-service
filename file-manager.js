@@ -10,7 +10,7 @@ var port = process.env.PORT || 8082;
 
 app.use(bodyParser.json());
 
-app.post('/save', (req, res) => {
+app.post('/file', (req, res) => {
   if(req.body.originalname){
     var buf = Buffer.from(req.body.buffer);
     let infoStream = bufferToStream(buf);
@@ -23,7 +23,7 @@ app.post('/save', (req, res) => {
   }
 });
 
-app.get('/get/**', (req, res) => {
+app.get('/file/**', (req, res) => {
   console.log("Archivo seleccionado: " + req.query.archivo);
   let readStream = fs.createReadStream("./SAVE/"+req.query.archivo+".zeus");
   var bufs = [];
