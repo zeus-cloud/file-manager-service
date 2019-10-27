@@ -8,7 +8,8 @@ const { Readable } = require('stream');
 var app = express();
 var port = process.env.PORT || 8082;
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 
 app.post('/file', (req, res) => {
   if(req.body.originalname){
