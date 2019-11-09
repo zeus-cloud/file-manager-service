@@ -15,7 +15,7 @@ app.post('/file', (req, res) => {
   if(req.body.originalname){
     var buf = Buffer.from(req.body.buffer);
     let infoStream = bufferToStream(buf);
-    let writeStream = fs.createWriteStream("./SAVE/" + req.body.originalname);
+    let writeStream = fs.createWriteStream("./" + req.body.originalname);
     infoStream.pipe(writeStream);
     res.send({msg:"Archivo recibido"});
     console.log("Archivo recibido: " + req.body.originalname);
@@ -26,7 +26,7 @@ app.post('/file', (req, res) => {
 
 app.get('/file/**', (req, res) => {
   console.log("Archivo seleccionado: " + req.query.archivo);
-  let readStream = fs.createReadStream("./SAVE/"+req.query.archivo+".zeus");
+  let readStream = fs.createReadStream("./"+req.query.archivo+".zeus");
   var bufs = [];
   readStream.on('data', function(d){ bufs.push(d); });
   readStream.on('end', function(){var buf = Buffer.concat(bufs);
