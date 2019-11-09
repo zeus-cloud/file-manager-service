@@ -10,4 +10,6 @@ COPY . .
 
 EXPOSE 8082
 
+CMD [ "mkdir", "SAVE" ]
+
 CMD [ "node", "file-manager.js" ]
